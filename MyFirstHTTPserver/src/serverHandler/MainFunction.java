@@ -160,9 +160,10 @@ public class MainFunction {
         @Override
         public void handle(HttpExchange he) throws IOException {
 
-            String path = "HTML/";
-            
-            File file = new File(path + "Gallery.html");
+            String root = "/index";
+
+            File file = new File(root);
+            System.out.println("Path for requested file: " + root + he.getRequestURI().getPath());
             byte[] bytesToSend = new byte[(int) file.length()];
             try {
                 BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
